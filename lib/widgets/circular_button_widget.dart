@@ -24,7 +24,7 @@ class CircularButton extends StatelessWidget {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
         ),
-        onPressed: onPressed,
+        onPressed: () => onPressed,
         splashColor: Colors.redAccent,
         child: ListTile(
           leading: leading,
