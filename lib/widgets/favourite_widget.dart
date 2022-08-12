@@ -8,13 +8,14 @@ class FavouriteButton extends StatefulWidget {
 }
 
 class _FavouriteButtonState extends State<FavouriteButton> {
-  @override
   bool _isFavourite = false;
+  @override
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: 18,
       backgroundColor: const Color(0xFF2A2C36),
       child: IconButton(
+        splashRadius: 18,
         onPressed: () {
           setState(() {
             _isFavourite = !_isFavourite;
