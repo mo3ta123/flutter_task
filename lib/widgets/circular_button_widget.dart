@@ -7,13 +7,13 @@ class CircularButton extends StatelessWidget {
       required this.width,
       required this.height,
       this.leading,
-      this.onPressed})
+      required this.onPressed})
       : super(key: key);
   final String text;
   final double width;
   final double height;
   final Widget? leading;
-  final void Function()? onPressed;
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
