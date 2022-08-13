@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/widgets/rating_widget.dart';
 import 'package:flutter_task/widgets/select_border.dart';
+import '../widgets/bottom_sheet.dart';
 import '/widgets/cloth_swiper_tile.dart';
 import '/widgets/favourite_widget.dart';
 import '/widgets/border_options.dart';
-import '/widgets/border_tile.dart';
+
 import '/widgets/circular_button_widget.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class PageOne extends StatefulWidget {
   const PageOne({Key? key}) : super(key: key);
@@ -16,6 +16,9 @@ class PageOne extends StatefulWidget {
 }
 
 class _PageOneState extends State<PageOne> {
+  static const imageUrl =
+      'https://honeywell.scene7.com/is/image/honeywell/hon-ab-webb-telescope-first-images:1-1-square?wid=1245&hei=1245&dpr=off';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,8 +85,17 @@ class _PageOneState extends State<PageOne> {
                   ),
                 ),
                 const Spacer(),
-                const CircularButton(
-                    text: 'ADD TO CART', width: 160, height: 36),
+                CircularButton(
+                  text: 'ADD TO CART',
+                  width: 160,
+                  height: 36,
+                  onPressed: () => showModalBottomSheet(
+                    context: context,
+                    useRootNavigator: true,
+                    backgroundColor: Colors.transparent,
+                    builder: (context) => BottomSheetWidget(),
+                  ),
+                ),
                 const Spacer(),
               ],
             ),
@@ -93,25 +105,28 @@ class _PageOneState extends State<PageOne> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CarouselSlider(
-              items: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                  child: Image.network(
-                    'https://honeywell.scene7.com/is/image/honeywell/hon-ab-webb-telescope-first-images:1-1-square?wid=1245&hei=1245&dpr=off',
-                    fit: BoxFit.fill,
-                  ),
+            SizedBox(
+              height: 413,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                      child: Image.network(
+                        imageUrl,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                      child: Image.network(
+                        imageUrl,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                  child: Image.network(
-                    'https://honeywell.scene7.com/is/image/honeywell/hon-ab-webb-telescope-first-images:1-1-square?wid=1245&hei=1245&dpr=off',
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ],
-              options: CarouselOptions(
-                height: 413,
               ),
             ),
             const SizedBox(
@@ -266,8 +281,7 @@ class _PageOneState extends State<PageOne> {
                       price: 15,
                       isDiscount: true,
                       chipText: '-20%',
-                      imageUrl:
-                          'https://honeywell.scene7.com/is/image/honeywell/hon-ab-webb-telescope-first-images:1-1-square?wid=1245&hei=1245&dpr=off'),
+                      imageUrl: imageUrl),
                   ClothSwiperTile(
                       rating: 0,
                       companey: 'Dorothy Perkins',
@@ -275,8 +289,7 @@ class _PageOneState extends State<PageOne> {
                       price: 15,
                       isDiscount: false,
                       chipText: 'NEW',
-                      imageUrl:
-                          'https://honeywell.scene7.com/is/image/honeywell/hon-ab-webb-telescope-first-images:1-1-square?wid=1245&hei=1245&dpr=off'),
+                      imageUrl: imageUrl),
                   ClothSwiperTile(
                       rating: 0,
                       companey: 'Dorothy Perkins',
@@ -284,8 +297,7 @@ class _PageOneState extends State<PageOne> {
                       price: 15,
                       isDiscount: false,
                       chipText: 'NEW',
-                      imageUrl:
-                          'https://honeywell.scene7.com/is/image/honeywell/hon-ab-webb-telescope-first-images:1-1-square?wid=1245&hei=1245&dpr=off'),
+                      imageUrl: imageUrl),
                 ],
               ),
             ),
