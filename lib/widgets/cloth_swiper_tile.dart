@@ -3,17 +3,19 @@ import '/widgets/rating_widget.dart';
 import '/widgets/favourite_widget.dart';
 
 class ClothSwiperTile extends StatelessWidget {
-  const ClothSwiperTile(
-      {Key? key,
-      required this.rating,
-      required this.companey,
-      required this.title,
-      required this.price,
-      required this.isDiscount,
-      required this.chipText,
-      required this.imageUrl})
-      : super(key: key);
+  const ClothSwiperTile({
+    Key? key,
+    required this.rating,
+    required this.companey,
+    required this.title,
+    required this.price,
+    required this.isDiscount,
+    required this.chipText,
+    required this.imageUrl,
+    required this.numberOfRates,
+  }) : super(key: key);
   final double rating;
+  final int numberOfRates;
   final String companey;
   final String title;
   final int price;
@@ -46,7 +48,7 @@ class ClothSwiperTile extends StatelessWidget {
                 const SizedBox(
                   height: 11,
                 ),
-                Rating(rating: rating),
+                Rating(rating: rating, numberOfRates: numberOfRates),
                 const SizedBox(
                   height: 8,
                 ),
