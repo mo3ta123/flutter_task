@@ -12,7 +12,7 @@ class BottomSheetWidget extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Container(
-          height: 368,
+          //height: 368,
           width: MediaQuery.of(context).size.width,
           clipBehavior: Clip.antiAlias,
           decoration: const BoxDecoration(
@@ -93,7 +93,7 @@ class BottomSheetWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 276,
+          bottom: 44,
           child: CircularButton(
             height: 48,
             width: 343,
