@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_task/screens/page_2.dart';
 
 class Rating extends StatelessWidget {
   const Rating({Key? key, required this.rating, required this.numberOfRates})
@@ -10,8 +11,11 @@ class Rating extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        print('here');
-      }, //TODO:add navigator
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const RatingAndReviewsPage()));
+      },
       child: Row(
         children: [
           RatingBar(
